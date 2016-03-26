@@ -18,28 +18,37 @@ get_order_by = function(order_by) {
                date_land_incr = "date_land",
                date_submit_desc = "[date_submit,desc]",
                date_submit_incr = "date_submit")
-
   paste0("&order_by=", end)
 }
 
-#' Download results
+#' Download questionnaire results
 #'
-#' Download results for a particular typeform.
+#' Download results for a particular typeform questionnaire.
 #' @inheritParams get_all_typeforms
 #' @param uid The UID (unique identifier) of the typeform you want the results for.
 #' @param completed, default \code{NULL}, return all results.
 #' Fetch only completed results (\code{TRUE}), or only not-completed results
-#' (=\code{FALSE}).
-#' @param since, default \code{NULL}
-#' @param until, default \code{NULL}
+#' (=\code{FALSE}). If \code{NULL} return all results.
+#' @param since, default \code{NULL}. Fetch only the results after a specific date and
+#' time. If \code{NULL} return all results.
+#' @param until, default \code{NULL}. Fetch only the results before a specific date and
+#' time. If \code{NULL} return all results.
 #' @param offset Fetch all results except the first \code{offset}.
 #' i.e. Start listing results from result #\code{offset} onwards.
-#' @param limit, default \code{NULL}
+#' @param limit, default \code{NULL}. Fetch only \code{limit} results.
+#' If \code{NULL} return all results.
 #' @param order_by One of "completed", "date_land_desc", "date_land_incr",
-#' "date_submit_desc", "date_submit_incr"
+#' "date_submit_desc", or "date_submit_incr".
 #' @param simplify, Logical. By default, \code{TRUE}, and returns only the questionnaire
-#' responses as a data frame.
+#' responses as a data frame. If \code{FALSE} return all results from the API call.
+#' @seealso https://www.typeform.com/help/data-api/
 #' @export
+#' @examples
+#' \dontrun{
+#' uid = "XXXX"
+#' api = "YYYY"
+#' get_results(uid, api)
+#' }
 get_results = function(uid, api,
                        completed=NULL, since=NULL, until=NULL, offset=NULL, limit=NULL,
                        order_by = NULL,

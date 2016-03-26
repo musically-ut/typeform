@@ -9,7 +9,17 @@ get_all_typeforms(api)
 \arguments{
 \item{api}{Your private api key.}
 }
+\value{
+A two column data frame
+}
 \description{
-Returns a data frame containing your typeforms and their UIDs.
+This functions returns a data frame containing your typeforms and their
+associated UIDs.
+}
+\examples{
+\dontrun{
+api = "XXXXX"
+get_all_typeforms(api)
+}
 }
 

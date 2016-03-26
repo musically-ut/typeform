@@ -23,7 +23,7 @@ library("typeform")
 
 ## Using the package
 
-To use the package, you will need a [data API](https://www.typeform.com/help/data-api/)
+To use this package, you will need a [data API](https://www.typeform.com/help/data-api/)
 key. With this key in position, you can then list your available forms
 
 ```
@@ -46,6 +46,8 @@ get_results(uid, api, completed=TRUE)
 ## Results since the 1st Jan
 get_results(uid, api, since=as.Date("2016-01-01"))
 ```
+
+See the `?get_results` help page for other options.
 
 ## Example: Multiple Filters / Order
 
